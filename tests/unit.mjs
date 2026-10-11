@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import {dayKey,weekKeys,missingIngredients,uniqueShopping,sumForDay,goalProgress,escapeHTML} from '../logic.mjs';
+assert.equal(dayKey(new Date(2026,9,11)),'2026-10-11');
+assert.equal(weekKeys(new Date(2026,9,11)).length,7);
+assert.deepEqual(missingIngredients([{name:'chicken breast'},{name:'rice'}],['chicken breast','brown rice','spinach']),['spinach']);
+assert.equal(uniqueShopping([{name:'tomatoes'}],['tomatoes','eggs']).length,1);
+assert.equal(sumForDay([{date:'2026-10-11',amount:8},{date:'2026-10-11',amount:12},{date:'2026-10-10',amount:5}],'2026-10-11'),20);
+assert.equal(escapeHTML('<img src=x onerror=alert(1)>'),'&lt;img src=x onerror=alert(1)&gt;');
+assert.equal(goalProgress({id:'g1',metric:'water'},{water:[{date:'2026-10-11',amount:8}]},new Date(2026,9,11)),8);
+console.log("Jenny's Bloom: 7 logic checks passed");
