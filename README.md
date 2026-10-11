@@ -34,15 +34,28 @@ python -m http.server 8000
 
 Visit `http://localhost:8000`. A simple `preview.html` is also included as a one-file visual demo if a local web server isn't available; install/offline features require a hosted HTTPS address.
 
-## Put it on her Android phone (no login)
+## View and publish the ACTUAL website with GitHub Pages
 
-1. Create a **private** empty GitHub repository named `jennys-bloom` for the source code. This is for the builder, **not** an account Jenny needs.
-2. Add the source files from this project to that repository; keep personal data/backup JSON out of Git.
-3. Deploy the repository as a **static website** with a provider such as **Cloudflare Pages** or **Netlify**. Both offer plans suitable for modest static projects, subject to current terms. Do not upload private backup exports to the host. Choose HTTPS.
-4. Open the resulting `https://...` link on Jenny's Android phone using Chrome. After verifying it works, tap **⋮ → Add to Home screen / Install app**, then tap its icon to open it in its own window. The precise menu label depends on Android/browser version.
-5. Jenny completes her own short onboarding; her progress is saved in that phone browser, not through her GitHub account.
+This project **already contains the complete visual and interactive website** at the repository root, including `index.html`, `styles.css`, `app.mjs`, images/icons, and a PWA manifest. The code repository viewer shows source files; **GitHub Pages displays the running website**. No third-party host, new framework, build command, or copy/paste is needed.
 
-**Important distinction:** A private GitHub repo does not automatically mean the deployed web address is private. In this prototype, the *blank app shell* can be publicly visited while Jenny's local entries stay on her phone. If you need to prevent others from even seeing the app, use access controls, which introduce some form of sign-in.
+Repository: [keithalanwitter-design/Jennys-bloom](https://github.com/keithalanwitter-design/Jennys-bloom).
+
+### One-time GitHub Pages activation
+
+1. Open [Settings → Pages](https://github.com/keithalanwitter-design/Jennys-bloom/settings/pages).
+2. Under **Build and deployment**, choose **Deploy from a branch**.
+3. Select branch **main**, folder **/(root)**, then **Save**.
+4. GitHub publishes the HTML/CSS/JS and automatically updates the site with future pushes.
+
+Once GitHub reports **Visit site** and shows a successful deployment, open that provided URL on Jenny's Android Chrome browser; use **⋮ → Add to Home screen / Install app**. The expected *address pattern*, not an already-live confirmation, is `https://keithalanwitter-design.github.io/Jennys-bloom/`.
+
+**Important plan/visibility limitation:** GitHub Free includes Pages for **public** repositories; private-repository Pages publishing requires an eligible paid GitHub plan. This repository is **private** right now. If GitHub's Pages setting is unavailable, you must decide whether to change the repository's visibility to public or use an eligible GitHub plan. Do not change visibility without the owner's approval. **Pages sites are publicly reachable even when the source repository is private** on a qualifying plan. This is safe only for a public-facing blank app shell, not a secure/private medical records website.
+
+### No-login privacy model
+
+Jenny does **not** need a GitHub account or login to view the published site. Entries stay in the local storage of the specific device/browser, not in repository source code or a server database. This is convenient, but **not secure medical-record storage**. Export backups to a private location; never commit her wellness entries or backup JSON to a GitHub repository. Local entries can be lost on browser reset, phone change, or site-origin change. Closed-app background reminders are not yet implemented.
+
+For troubleshooting and release checks, see [the GitHub Pages setup checklist](docs/GITHUB_PAGES.md).
 
 ## Scope and medical safety
 
